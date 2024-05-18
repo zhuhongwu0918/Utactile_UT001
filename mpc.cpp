@@ -1,4 +1,4 @@
-// using MIT control framework of MPC;
+// using hector control framework of MPC;
 
 viod main(void){
 ;
