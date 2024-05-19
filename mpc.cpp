@@ -13,12 +13,15 @@ Feel free to use in any purpose, and cite Nabo or 小炮 in any style, to contri
 <https://www.zhihu.com/column/c_1746480685987373057>
 
 =====================================================*/
+<<<<<<< HEAD
 void main(void){
 
 <<<<<<< HEAD
 >>>>>>> 9972d86 (add mpc)
 =======
 #include<iostream>
+=======
+>>>>>>> e8c6df9 (add mpc)
 using namespace std;
 void main(void){
     cout<<"hello world! \n"<<endl;
