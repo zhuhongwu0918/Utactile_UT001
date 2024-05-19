@@ -15,5 +15,12 @@ Feel free to use in any purpose, and cite Nabo or 小炮 in any style, to contri
 =====================================================*/
 void main(void){
 
+<<<<<<< HEAD
 >>>>>>> 9972d86 (add mpc)
+=======
+#include<iostream>
+using namespace std;
+void main(void){
+    cout<<"hello world! \n"<<endl;
+>>>>>>> 5796f7f (hello test)
 }
