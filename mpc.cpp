@@ -1,5 +1,6 @@
 // using hector control framework of MPC;
-
-viod main(void){
-;
+#include<iostream>
+using namespace std;
+void main(void){
+    cout<<"hello world! \n"<<endl;
 }
