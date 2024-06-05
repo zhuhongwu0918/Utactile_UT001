@@ -17,8 +17,8 @@ https://blog.csdn.net/qq_38196449/article/details/136125995
 
 ## 3. 编译并运行工程，获取原始16进制数据
 查看设备对应的端口号 eg. COM4
-将工程放入不包含中文字符的路径中。修改hexraw.cpp文件中 
-const char* portName = "COM4"; // 串口名称  
+将工程放入不包含中文字符的路径中。
+修改hexraw.cpp文件中 const char* portName = "COM4"; // 串口名称  
 
 
 `mkdir build`
