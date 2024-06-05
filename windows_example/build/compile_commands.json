@@ -1,0 +1,8 @@
+[
+{
+  "directory": "D:/windows_example/build",
+  "command": "C:\\mingw64\\bin\\g++.exe   -g -o CMakeFiles\\hexraw.dir\\hexraw.cpp.obj -c D:\\windows_example\\hexraw.cpp",
+  "file": "D:/windows_example/hexraw.cpp",
+  "output": "CMakeFiles/hexraw.dir/hexraw.cpp.obj"
+}
+]
