@@ -21,8 +21,10 @@
 
 
 `code block`
+
 分割线
 ***
+![MinGW安装](./pictures/MinGWinstall.png)
 
 ## windos平台
 1.MinGW下载安装教程
