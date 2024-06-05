@@ -1,0 +1,10 @@
+^D:\WINDOWS_EXAMPLE\BUILD\CMAKEFILES\38DBC3289E9BA89BC7C8AC066C9EB07F\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/windows_example -BD:/windows_example/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/windows_example/build/hellocmake.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

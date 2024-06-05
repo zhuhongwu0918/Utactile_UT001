@@ -1,3 +1,2 @@
-include_directories(".")
-include("C:\Users\HongwuZhu\Documents\github\bipedal\bipedal")
+include_directories(${CMAKE_SOURCE_DIR})
 add_executable(test mpc.cpp)
