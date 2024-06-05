@@ -1,7 +1,9 @@
 # windos平台下使用触觉传感器
 ## 1. 下载并安装MinGW
 下载地址：https://sourceforge.net/projects/mingw/files/
+
 安装，勾选mingw32-base和mingw32-gcc-g++
+
 或参考如下教程
 https://blog.csdn.net/qq_38196449/article/details/136125995
 
