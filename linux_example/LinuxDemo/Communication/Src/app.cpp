@@ -264,7 +264,9 @@ void axit_decode(unsigned char *pData, unsigned short len)
     }
 	printf("\r\n");
 
-    /* tAxit变量为每个传感器的三轴数据，此处可添加用户代码 */
+    /* 
+    tAxit变量为每个传感器的三轴数据，此处可添加用户代码 
+    */
 }
 
 /******************************************************************************
@@ -362,7 +364,7 @@ void demo_send(unsigned char *pData, unsigned short Size)
 int demo_app_init(void)
 {
 	uart_cfg_t cfg = {0};
-    char device[] = "/dev/ttyUSB0";
+    char device[] = "/dev/ttyUSB1";
     int rw_flag = -1;
 
 	cfg.baudrate = 115200;

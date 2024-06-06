@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/skin_demo.dir/Communication/Src/app.cpp.o CMakeFiles/skin_demo.dir/Communication/Src/decode_usart.cpp.o CMakeFiles/skin_demo.dir/main.cpp.o  -o skin_demo 
