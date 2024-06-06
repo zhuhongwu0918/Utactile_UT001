@@ -46,9 +46,22 @@
 # ROS系统下使用触觉传感器(RS485)
 ## 1. 环境要求
 本例程中使用Cmake组织工程，在Ubuntu 20.04 LTS下编译通过，使用ROS1操作系统。
+#安装rosserial软件包
 
+#install rosserial package
+
+`sudo apt-get install ros-noetic-serial`  #ros为Kinect版本
+OR
+`sudo apt-get install ros-melodic-serial`  #ros为melodic版本
+
+安装可视化界面软件包
+
+`sudo apt-get install ros-<rosdistro>-joint-state-publisher`
+
+`sudo apt-get install ros-<rosdistro>-robot-state-publisher`
 
 新建工作空间并初始化：
+
 `mkdir -p ~/catkin_ws/src`
 
 `cd ~/catkin_ws/src`
@@ -66,16 +79,8 @@
 
 `catkin_make -DPYTHON_EXECUTABLE=/usr/bin/python3`
 
-#将ros软件包tactile_driver拷贝到工作空间src目录下
-#copy tactile_driver directory into src floder
-
-#安装rosserial软件包
-
-#install rosserial package
-
-`sudo apt-get install ros-noetic-serial  #ros为Kinect版本`
-OR
-`sudo apt-get install ros-melodic-serial  #ros为melodic版本`
+#将ros软件包tactile_driver拷贝到工作空间src目录下，并编译：
+#copy tactile_driver directory into src floder and compile:
 
 `cd ~/catkin_ws && catkin_make`
 
@@ -83,16 +88,23 @@ OR
 
 #read serial
 
-`ls /dev/ttyACM0`
-OR
 `ls /dev/ttyUSB0`
-
-`sudo chmod 777 /dev/ttyACM0`
 OR
+`ls /dev/ttyACM0`
+
 `sudo chmod 777 /dev/ttyUSB0`
+OR
+`sudo chmod 777 /dev/ttyACM0`
 
+单独运行串口数据读取节点
 
-#启动带UI可视化界面的launch文件
+Run the serial port data reading node independently
+
+`rosrun tactile_driver serial_read`
+
+传感器触点数据会发布在"/tactile_data"的话题中，默认发布频率为10Hz
+
+#启动带UI可视化界面的launch文件，显示界面的显示仅供参考，建议直接使用原始数字数据进行处理
 
 *（Tips:显示效果可依据需求进行参数更改）*
 
@@ -103,13 +115,7 @@ OR
 
 `roslaunch tactile_driver demo.launch`
 
-单独运行串口数据读取节点
 
-Run the serial port data reading node independently
-
-`rosrun tactile_driver serial_read`
-
-传感器触点数据会发布在"/tactile_data"的话题中，默认发布频率为10Hz
 
 # windos平台下使用触觉传感器(RS485)
 ## 1. 下载并安装MinGW
@@ -153,3 +159,5 @@ https://blog.csdn.net/qq_38196449/article/details/136125995
 to be continue...
 
 # windos平台下使用触觉传感器(CAN)
+
+# 通信协议

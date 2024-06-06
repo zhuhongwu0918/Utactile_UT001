@@ -281,7 +281,7 @@ class SubscribeAndPublish
 
     void set_marker_fixed_property(visualization_msgs::Marker &marker_)
     {
-            marker_.header.frame_id = "/base_link";
+            marker_.header.frame_id = "base_link";
             marker_.ns = "shapes";
             marker_.id = 0;
             
