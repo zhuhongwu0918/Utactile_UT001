@@ -47,8 +47,8 @@
 ## 1. 环境要求
 本例程中使用Cmake组织工程，在Ubuntu 20.04 LTS下编译通过，使用ROS1操作系统。
 
-新建工作空间并初始化：
 
+新建工作空间并初始化：
 `mkdir -p ~/catkin_ws/src`
 
 `cd ~/catkin_ws/src`
@@ -58,6 +58,7 @@
 `cd ~/catkin_ws/`
 
 `catkin_make`
+
 
 #如果使用conda环境，可以使用如下指令进行编译：
 
@@ -89,6 +90,7 @@ OR
 `sudo chmod 777 /dev/ttyACM0`
 OR
 `sudo chmod 777 /dev/ttyUSB0`
+
 
 #启动带UI可视化界面的launch文件
 
