@@ -163,6 +163,10 @@ Run the serial port data reading node independently
 
 传感器触点数据会发布在"/tactile_data"的话题中，默认发布频率为10Hz
 
+#启动带UI可视化界面的launch文件，显示界面的显示仅供参考，建议直接使用原始数字数据进行处理
+
+传感器触点数据会发布在"/tactile_data"的话题中，默认发布频率为10Hz
+
 #请使用windows上位机软件进行可视化验证，下述带UI可视化界面的launch文件，显示界面的显示仅供参考，工程部署直接使用原始数字数据进行处理。
 
 *（Tips:显示效果可依据需求进行参数更改，此处仅提供代码模版供使用）*
@@ -326,4 +330,3 @@ to be continue...
 |Byte[95~96]|第16个传感器y轴数据||
 |Byte[97~98]|第16个传感器z轴数据||
 
-[def]: #windows平台下使用触觉传感器can
