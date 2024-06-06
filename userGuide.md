@@ -1,4 +1,4 @@
-# windos平台下使用触觉传感器
+# windos平台下使用触觉传感器(RS485)
 ## 1. 下载并安装MinGW
 下载地址：https://sourceforge.net/projects/mingw/files/
 
