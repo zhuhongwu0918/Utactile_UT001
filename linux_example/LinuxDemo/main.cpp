@@ -4,6 +4,11 @@
 #include <unistd.h>
 #include "app.h"
 #include "decode_usart.h"
+/*
+待修改
+1.将配置写到主函数
+2.使用函数直接获取数组数据
+*/
 
 int main(int argc, char *argv[])
 {
