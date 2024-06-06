@@ -43,6 +43,48 @@
 数据都存储`app.cpp`文件中的函数`void axit_decode(unsigned char *pData, unsigned short len){}`中的数组变量`tAxit`；
 
 可以通过函数`int axit_get(Axis_t *axit);`获取数据。
+# ROS系统下使用触觉传感器(RS485)
+## 1. 环境要求
+本例程中使用Cmake组织工程，在Ubuntu 20.04 LTS下编译通过，使用ROS1操作系统。
+
+`mkdir -p ~/catkin_ws/src`
+
+`cd ~/catkin_ws/src`
+
+`catkin_init_workspace`
+
+`cd ~/catkin_ws/`
+
+`catkin_make`
+
+#if in conda env,use this command instead
+
+`catkin_make -DPYTHON_EXECUTABLE=/usr/bin/python3`
+
+#copy tactile_driver directory into src floder
+
+#install rosserial package
+
+`sudo apt-get install ros-noetic-serial  #ros为Kinect版本`
+`sudo apt-get install ros-melodic-serial  #ros为melodic版本`
+
+`cd ~/catkin_ws && catkin_make`
+`source devel/setup.bash`
+
+#read serial
+
+`ls /dev/ttyACM0`
+OR
+`ls /dev/ttyUSB0`
+
+`sudo chmod 777 /dev/ttyACM0`
+OR
+`sudo chmod 777 /dev/ttyUSB0`
+
+#launch with UI
+
+`roslaunch tactile_driver demo.launch`
+
 # windos平台下使用触觉传感器(RS485)
 ## 1. 下载并安装MinGW
 下载地址：https://sourceforge.net/projects/mingw/files/
