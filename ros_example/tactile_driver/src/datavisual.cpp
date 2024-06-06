@@ -79,7 +79,7 @@ class SubscribeAndPublish
         SubscribeAndPublish::marker_1.pose.orientation.z = q.z();
         SubscribeAndPublish::marker_1.pose.orientation.w = q.w();
 
-        SubscribeAndPublish::marker_1.scale.x = (((sqrt(pow(output.point1x,2)+pow(output.point1y,2)+pow(output.point1z,2))))/32767)*ca;
+        SubscribeAndPublish::marker_1.scale.x = 0.5+(((sqrt(pow(output.point1x,2)+pow(output.point1y,2)+pow(output.point1z,2))))/32767)*ca;
 
         SubscribeAndPublish::Publish(SubscribeAndPublish::marker_1, SubscribeAndPublish::pub_marker_1);
 
@@ -92,7 +92,7 @@ class SubscribeAndPublish
         SubscribeAndPublish::marker_2.pose.orientation.z = q.z();
         SubscribeAndPublish::marker_2.pose.orientation.w = q.w();
 
-        SubscribeAndPublish::marker_2.scale.x = (((sqrt(pow(output.point2x,2)+pow(output.point2y,2)+pow(output.point2z,2))))/32767)*ca;
+        SubscribeAndPublish::marker_2.scale.x = 0.5+(((sqrt(pow(output.point2x,2)+pow(output.point2y,2)+pow(output.point2z,2))))/32767)*ca;
 
         SubscribeAndPublish::Publish(SubscribeAndPublish::marker_2, SubscribeAndPublish::pub_marker_2);
 
@@ -105,7 +105,7 @@ class SubscribeAndPublish
         SubscribeAndPublish::marker_3.pose.orientation.z = q.z();
         SubscribeAndPublish::marker_3.pose.orientation.w = q.w();
 
-        SubscribeAndPublish::marker_3.scale.x = (((sqrt(pow(output.point3x,2)+pow(output.point3y,2)+pow(output.point3z,2))))/32767)*ca;
+        SubscribeAndPublish::marker_3.scale.x = 0.5+(((sqrt(pow(output.point3x,2)+pow(output.point3y,2)+pow(output.point3z,2))))/32767)*ca;
         SubscribeAndPublish::Publish(SubscribeAndPublish::marker_3, SubscribeAndPublish::pub_marker_3);
 
         tmpvec = Eigen::Vector3d(output.point4x,output.point4y,output.point4z);
@@ -117,153 +117,153 @@ class SubscribeAndPublish
         SubscribeAndPublish::marker_4.pose.orientation.z = q.z();
         SubscribeAndPublish::marker_4.pose.orientation.w = q.w();
 
-        SubscribeAndPublish::marker_4.scale.x = (((sqrt(pow(output.point4x,2)+pow(output.point4y,2)+pow(output.point4z,2))))/32767)*ca;
+        SubscribeAndPublish::marker_4.scale.x = 0.5+(((sqrt(pow(output.point4x,2)+pow(output.point4y,2)+pow(output.point4z,2))))/32767)*ca;
         SubscribeAndPublish::Publish(SubscribeAndPublish::marker_4, SubscribeAndPublish::pub_marker_4);
         /////////////////5-8////////////////////////////////////////////////////////////////////////////////////
-        tmpvec = Eigen::Vector3d(output.point5x,output.point5y,output.point5z);
-        eulerAngle = vector2matrix2eulerAngle(tmpvec);
-        eulerAngle.z() = eulerAngle.z() - 1.57;
-        q = SubscribeAndPublish::euler2Quaternion(eulerAngle.x(), eulerAngle.y(), eulerAngle.z());
-        SubscribeAndPublish::marker_5.pose.orientation.x = q.x();
-        SubscribeAndPublish::marker_5.pose.orientation.y = q.y();
-        SubscribeAndPublish::marker_5.pose.orientation.z = q.z();
-        SubscribeAndPublish::marker_5.pose.orientation.w = q.w();
+        // tmpvec = Eigen::Vector3d(output.point5x,output.point5y,output.point5z);
+        // eulerAngle = vector2matrix2eulerAngle(tmpvec);
+        // eulerAngle.z() = eulerAngle.z() - 1.57;
+        // q = SubscribeAndPublish::euler2Quaternion(eulerAngle.x(), eulerAngle.y(), eulerAngle.z());
+        // SubscribeAndPublish::marker_5.pose.orientation.x = q.x();
+        // SubscribeAndPublish::marker_5.pose.orientation.y = q.y();
+        // SubscribeAndPublish::marker_5.pose.orientation.z = q.z();
+        // SubscribeAndPublish::marker_5.pose.orientation.w = q.w();
 
-        SubscribeAndPublish::marker_5.scale.x = (((sqrt(pow(output.point5x,2)+pow(output.point5y,2)+pow(output.point5z,2))))/32767)*ca;
-        SubscribeAndPublish::Publish(SubscribeAndPublish::marker_5, SubscribeAndPublish::pub_marker_5);
+        // SubscribeAndPublish::marker_5.scale.x = (((sqrt(pow(output.point5x,2)+pow(output.point5y,2)+pow(output.point5z,2))))/32767)*ca;
+        // SubscribeAndPublish::Publish(SubscribeAndPublish::marker_5, SubscribeAndPublish::pub_marker_5);
 
-        tmpvec = Eigen::Vector3d(output.point6x,output.point6y,output.point6z);
-        eulerAngle = vector2matrix2eulerAngle(tmpvec);
-        eulerAngle.z() = eulerAngle.z() - 1.57;
-        q = SubscribeAndPublish::euler2Quaternion(eulerAngle.x(), eulerAngle.y(), eulerAngle.z());
-        SubscribeAndPublish::marker_6.pose.orientation.x = q.x();
-        SubscribeAndPublish::marker_6.pose.orientation.y = q.y();
-        SubscribeAndPublish::marker_6.pose.orientation.z = q.z();
-        SubscribeAndPublish::marker_6.pose.orientation.w = q.w();
+        // tmpvec = Eigen::Vector3d(output.point6x,output.point6y,output.point6z);
+        // eulerAngle = vector2matrix2eulerAngle(tmpvec);
+        // eulerAngle.z() = eulerAngle.z() - 1.57;
+        // q = SubscribeAndPublish::euler2Quaternion(eulerAngle.x(), eulerAngle.y(), eulerAngle.z());
+        // SubscribeAndPublish::marker_6.pose.orientation.x = q.x();
+        // SubscribeAndPublish::marker_6.pose.orientation.y = q.y();
+        // SubscribeAndPublish::marker_6.pose.orientation.z = q.z();
+        // SubscribeAndPublish::marker_6.pose.orientation.w = q.w();
 
-        SubscribeAndPublish::marker_6.scale.x = (((sqrt(pow(output.point6x,2)+pow(output.point6y,2)+pow(output.point6z,2))))/32767)*ca;
-        SubscribeAndPublish::Publish(SubscribeAndPublish::marker_6, SubscribeAndPublish::pub_marker_6);
+        // SubscribeAndPublish::marker_6.scale.x = (((sqrt(pow(output.point6x,2)+pow(output.point6y,2)+pow(output.point6z,2))))/32767)*ca;
+        // SubscribeAndPublish::Publish(SubscribeAndPublish::marker_6, SubscribeAndPublish::pub_marker_6);
 
-        tmpvec = Eigen::Vector3d(output.point7x,output.point7y,output.point7z);
-        eulerAngle = vector2matrix2eulerAngle(tmpvec);
-        eulerAngle.z() = eulerAngle.z() - 1.57;
-        q = SubscribeAndPublish::euler2Quaternion(eulerAngle.x(), eulerAngle.y(), eulerAngle.z());
-        SubscribeAndPublish::marker_7.pose.orientation.x = q.x();
-        SubscribeAndPublish::marker_7.pose.orientation.y = q.y();
-        SubscribeAndPublish::marker_7.pose.orientation.z = q.z();
-        SubscribeAndPublish::marker_7.pose.orientation.w = q.w();
+        // tmpvec = Eigen::Vector3d(output.point7x,output.point7y,output.point7z);
+        // eulerAngle = vector2matrix2eulerAngle(tmpvec);
+        // eulerAngle.z() = eulerAngle.z() - 1.57;
+        // q = SubscribeAndPublish::euler2Quaternion(eulerAngle.x(), eulerAngle.y(), eulerAngle.z());
+        // SubscribeAndPublish::marker_7.pose.orientation.x = q.x();
+        // SubscribeAndPublish::marker_7.pose.orientation.y = q.y();
+        // SubscribeAndPublish::marker_7.pose.orientation.z = q.z();
+        // SubscribeAndPublish::marker_7.pose.orientation.w = q.w();
 
-        SubscribeAndPublish::marker_7.scale.x = (((sqrt(pow(output.point7x,2)+pow(output.point7y,2)+pow(output.point7z,2))))/32767)*ca;
-        SubscribeAndPublish::Publish(SubscribeAndPublish::marker_7, SubscribeAndPublish::pub_marker_7);
+        // SubscribeAndPublish::marker_7.scale.x = (((sqrt(pow(output.point7x,2)+pow(output.point7y,2)+pow(output.point7z,2))))/32767)*ca;
+        // SubscribeAndPublish::Publish(SubscribeAndPublish::marker_7, SubscribeAndPublish::pub_marker_7);
 
-        tmpvec = Eigen::Vector3d(output.point8x,output.point8y,output.point8z);
-        eulerAngle = vector2matrix2eulerAngle(tmpvec);
-        eulerAngle.z() = eulerAngle.z() - 1.57;
-        q = SubscribeAndPublish::euler2Quaternion(eulerAngle.x(), eulerAngle.y(), eulerAngle.z());
-        SubscribeAndPublish::marker_8.pose.orientation.x = q.x();
-        SubscribeAndPublish::marker_8.pose.orientation.y = q.y();
-        SubscribeAndPublish::marker_8.pose.orientation.z = q.z();
-        SubscribeAndPublish::marker_8.pose.orientation.w = q.w();
+        // tmpvec = Eigen::Vector3d(output.point8x,output.point8y,output.point8z);
+        // eulerAngle = vector2matrix2eulerAngle(tmpvec);
+        // eulerAngle.z() = eulerAngle.z() - 1.57;
+        // q = SubscribeAndPublish::euler2Quaternion(eulerAngle.x(), eulerAngle.y(), eulerAngle.z());
+        // SubscribeAndPublish::marker_8.pose.orientation.x = q.x();
+        // SubscribeAndPublish::marker_8.pose.orientation.y = q.y();
+        // SubscribeAndPublish::marker_8.pose.orientation.z = q.z();
+        // SubscribeAndPublish::marker_8.pose.orientation.w = q.w();
 
-        SubscribeAndPublish::marker_8.scale.x = (((sqrt(pow(output.point8x,2)+pow(output.point8y,2)+pow(output.point8z,2))))/32767)*ca;
-        SubscribeAndPublish::Publish(SubscribeAndPublish::marker_8, SubscribeAndPublish::pub_marker_8);
-        //////////////9-12///////////////////////////////////////////////////////////////////////////////////////
-        tmpvec = Eigen::Vector3d(output.point9x,output.point9y,output.point9z);
-        eulerAngle = vector2matrix2eulerAngle(tmpvec);
-        eulerAngle.z() = eulerAngle.z() - 1.57;
-        q = SubscribeAndPublish::euler2Quaternion(eulerAngle.x(), eulerAngle.y(), eulerAngle.z());
-        SubscribeAndPublish::marker_9.pose.orientation.x = q.x();
-        SubscribeAndPublish::marker_9.pose.orientation.y = q.y();
-        SubscribeAndPublish::marker_9.pose.orientation.z = q.z();
-        SubscribeAndPublish::marker_9.pose.orientation.w = q.w();
+        // SubscribeAndPublish::marker_8.scale.x = (((sqrt(pow(output.point8x,2)+pow(output.point8y,2)+pow(output.point8z,2))))/32767)*ca;
+        // SubscribeAndPublish::Publish(SubscribeAndPublish::marker_8, SubscribeAndPublish::pub_marker_8);
+        // //////////////9-12///////////////////////////////////////////////////////////////////////////////////////
+        // tmpvec = Eigen::Vector3d(output.point9x,output.point9y,output.point9z);
+        // eulerAngle = vector2matrix2eulerAngle(tmpvec);
+        // eulerAngle.z() = eulerAngle.z() - 1.57;
+        // q = SubscribeAndPublish::euler2Quaternion(eulerAngle.x(), eulerAngle.y(), eulerAngle.z());
+        // SubscribeAndPublish::marker_9.pose.orientation.x = q.x();
+        // SubscribeAndPublish::marker_9.pose.orientation.y = q.y();
+        // SubscribeAndPublish::marker_9.pose.orientation.z = q.z();
+        // SubscribeAndPublish::marker_9.pose.orientation.w = q.w();
 
-        SubscribeAndPublish::marker_9.scale.x = (((sqrt(pow(output.point9x,2)+pow(output.point9y,2)+pow(output.point9z,2))))/32767)*ca;
-        SubscribeAndPublish::Publish(SubscribeAndPublish::marker_9, SubscribeAndPublish::pub_marker_9);
+        // SubscribeAndPublish::marker_9.scale.x = (((sqrt(pow(output.point9x,2)+pow(output.point9y,2)+pow(output.point9z,2))))/32767)*ca;
+        // SubscribeAndPublish::Publish(SubscribeAndPublish::marker_9, SubscribeAndPublish::pub_marker_9);
 
-        tmpvec = Eigen::Vector3d(output.point10x,output.point10y,output.point10z);
-        eulerAngle = vector2matrix2eulerAngle(tmpvec);
-        eulerAngle.z() = eulerAngle.z() - 1.57;
-        q = SubscribeAndPublish::euler2Quaternion(eulerAngle.x(), eulerAngle.y(), eulerAngle.z());
-        SubscribeAndPublish::marker_10.pose.orientation.x = q.x();
-        SubscribeAndPublish::marker_10.pose.orientation.y = q.y();
-        SubscribeAndPublish::marker_10.pose.orientation.z = q.z();
-        SubscribeAndPublish::marker_10.pose.orientation.w = q.w();
+        // tmpvec = Eigen::Vector3d(output.point10x,output.point10y,output.point10z);
+        // eulerAngle = vector2matrix2eulerAngle(tmpvec);
+        // eulerAngle.z() = eulerAngle.z() - 1.57;
+        // q = SubscribeAndPublish::euler2Quaternion(eulerAngle.x(), eulerAngle.y(), eulerAngle.z());
+        // SubscribeAndPublish::marker_10.pose.orientation.x = q.x();
+        // SubscribeAndPublish::marker_10.pose.orientation.y = q.y();
+        // SubscribeAndPublish::marker_10.pose.orientation.z = q.z();
+        // SubscribeAndPublish::marker_10.pose.orientation.w = q.w();
 
-        SubscribeAndPublish::marker_10.scale.x = (((sqrt(pow(output.point10x,2)+pow(output.point10y,2)+pow(output.point10z,2))))/32767)*ca;
-        SubscribeAndPublish::Publish(SubscribeAndPublish::marker_10, SubscribeAndPublish::pub_marker_10);
+        // SubscribeAndPublish::marker_10.scale.x = (((sqrt(pow(output.point10x,2)+pow(output.point10y,2)+pow(output.point10z,2))))/32767)*ca;
+        // SubscribeAndPublish::Publish(SubscribeAndPublish::marker_10, SubscribeAndPublish::pub_marker_10);
 
-        tmpvec = Eigen::Vector3d(output.point11x,output.point11y,output.point11z);
-        eulerAngle = vector2matrix2eulerAngle(tmpvec);
-        eulerAngle.z() = eulerAngle.z() - 1.57;
-        q = SubscribeAndPublish::euler2Quaternion(eulerAngle.x(), eulerAngle.y(), eulerAngle.z());
-        SubscribeAndPublish::marker_11.pose.orientation.x = q.x();
-        SubscribeAndPublish::marker_11.pose.orientation.y = q.y();
-        SubscribeAndPublish::marker_11.pose.orientation.z = q.z();
-        SubscribeAndPublish::marker_11.pose.orientation.w = q.w();
+        // tmpvec = Eigen::Vector3d(output.point11x,output.point11y,output.point11z);
+        // eulerAngle = vector2matrix2eulerAngle(tmpvec);
+        // eulerAngle.z() = eulerAngle.z() - 1.57;
+        // q = SubscribeAndPublish::euler2Quaternion(eulerAngle.x(), eulerAngle.y(), eulerAngle.z());
+        // SubscribeAndPublish::marker_11.pose.orientation.x = q.x();
+        // SubscribeAndPublish::marker_11.pose.orientation.y = q.y();
+        // SubscribeAndPublish::marker_11.pose.orientation.z = q.z();
+        // SubscribeAndPublish::marker_11.pose.orientation.w = q.w();
 
-        SubscribeAndPublish::marker_11.scale.x = (((sqrt(pow(output.point11x,2)+pow(output.point11y,2)+pow(output.point11z,2))))/32767)*ca;
-        SubscribeAndPublish::Publish(SubscribeAndPublish::marker_11, SubscribeAndPublish::pub_marker_11);
+        // SubscribeAndPublish::marker_11.scale.x = (((sqrt(pow(output.point11x,2)+pow(output.point11y,2)+pow(output.point11z,2))))/32767)*ca;
+        // SubscribeAndPublish::Publish(SubscribeAndPublish::marker_11, SubscribeAndPublish::pub_marker_11);
 
-        tmpvec = Eigen::Vector3d(output.point12x,output.point12y,output.point12z);
-        eulerAngle = vector2matrix2eulerAngle(tmpvec);
-        eulerAngle.z() = eulerAngle.z() - 1.57;
-        q = SubscribeAndPublish::euler2Quaternion(eulerAngle.x(), eulerAngle.y(), eulerAngle.z());
-        SubscribeAndPublish::marker_12.pose.orientation.x = q.x();
-        SubscribeAndPublish::marker_12.pose.orientation.y = q.y();
-        SubscribeAndPublish::marker_12.pose.orientation.z = q.z();
-        SubscribeAndPublish::marker_12.pose.orientation.w = q.w();
+        // tmpvec = Eigen::Vector3d(output.point12x,output.point12y,output.point12z);
+        // eulerAngle = vector2matrix2eulerAngle(tmpvec);
+        // eulerAngle.z() = eulerAngle.z() - 1.57;
+        // q = SubscribeAndPublish::euler2Quaternion(eulerAngle.x(), eulerAngle.y(), eulerAngle.z());
+        // SubscribeAndPublish::marker_12.pose.orientation.x = q.x();
+        // SubscribeAndPublish::marker_12.pose.orientation.y = q.y();
+        // SubscribeAndPublish::marker_12.pose.orientation.z = q.z();
+        // SubscribeAndPublish::marker_12.pose.orientation.w = q.w();
 
-        SubscribeAndPublish::marker_12.scale.x = (((sqrt(pow(output.point12x,2)+pow(output.point12y,2)+pow(output.point12z,2))))/32767)*ca;
-        SubscribeAndPublish::Publish(SubscribeAndPublish::marker_12, SubscribeAndPublish::pub_marker_12);
+        // SubscribeAndPublish::marker_12.scale.x = (((sqrt(pow(output.point12x,2)+pow(output.point12y,2)+pow(output.point12z,2))))/32767)*ca;
+        // SubscribeAndPublish::Publish(SubscribeAndPublish::marker_12, SubscribeAndPublish::pub_marker_12);
 
-        //////////////13-16///////////////////////////////////////////////////////////////////////////////////////
-        tmpvec = Eigen::Vector3d(output.point13x,output.point13y,output.point13z);
-        eulerAngle = vector2matrix2eulerAngle(tmpvec);
-        eulerAngle.z() = eulerAngle.z() - 1.57;
-        q = SubscribeAndPublish::euler2Quaternion(eulerAngle.x(), eulerAngle.y(), eulerAngle.z());
-        SubscribeAndPublish::marker_13.pose.orientation.x = q.x();
-        SubscribeAndPublish::marker_13.pose.orientation.y = q.y();
-        SubscribeAndPublish::marker_13.pose.orientation.z = q.z();
-        SubscribeAndPublish::marker_13.pose.orientation.w = q.w();
+        // //////////////13-16///////////////////////////////////////////////////////////////////////////////////////
+        // tmpvec = Eigen::Vector3d(output.point13x,output.point13y,output.point13z);
+        // eulerAngle = vector2matrix2eulerAngle(tmpvec);
+        // eulerAngle.z() = eulerAngle.z() - 1.57;
+        // q = SubscribeAndPublish::euler2Quaternion(eulerAngle.x(), eulerAngle.y(), eulerAngle.z());
+        // SubscribeAndPublish::marker_13.pose.orientation.x = q.x();
+        // SubscribeAndPublish::marker_13.pose.orientation.y = q.y();
+        // SubscribeAndPublish::marker_13.pose.orientation.z = q.z();
+        // SubscribeAndPublish::marker_13.pose.orientation.w = q.w();
 
-        SubscribeAndPublish::marker_13.scale.x = (((sqrt(pow(output.point13x,2)+pow(output.point13y,2)+pow(output.point13z,2))))/32767)*ca;
-        SubscribeAndPublish::Publish(SubscribeAndPublish::marker_13, SubscribeAndPublish::pub_marker_13);
+        // SubscribeAndPublish::marker_13.scale.x = (((sqrt(pow(output.point13x,2)+pow(output.point13y,2)+pow(output.point13z,2))))/32767)*ca;
+        // SubscribeAndPublish::Publish(SubscribeAndPublish::marker_13, SubscribeAndPublish::pub_marker_13);
 
-        tmpvec = Eigen::Vector3d(output.point14x,output.point14y,output.point14z);
-        eulerAngle = vector2matrix2eulerAngle(tmpvec);
-        eulerAngle.z() = eulerAngle.z() - 1.57;
-        q = SubscribeAndPublish::euler2Quaternion(eulerAngle.x(), eulerAngle.y(), eulerAngle.z());
-        SubscribeAndPublish::marker_14.pose.orientation.x = q.x();
-        SubscribeAndPublish::marker_14.pose.orientation.y = q.y();
-        SubscribeAndPublish::marker_14.pose.orientation.z = q.z();
-        SubscribeAndPublish::marker_14.pose.orientation.w = q.w();
+        // tmpvec = Eigen::Vector3d(output.point14x,output.point14y,output.point14z);
+        // eulerAngle = vector2matrix2eulerAngle(tmpvec);
+        // eulerAngle.z() = eulerAngle.z() - 1.57;
+        // q = SubscribeAndPublish::euler2Quaternion(eulerAngle.x(), eulerAngle.y(), eulerAngle.z());
+        // SubscribeAndPublish::marker_14.pose.orientation.x = q.x();
+        // SubscribeAndPublish::marker_14.pose.orientation.y = q.y();
+        // SubscribeAndPublish::marker_14.pose.orientation.z = q.z();
+        // SubscribeAndPublish::marker_14.pose.orientation.w = q.w();
 
-        SubscribeAndPublish::marker_14.scale.x = (((sqrt(pow(output.point14x,2)+pow(output.point14y,2)+pow(output.point14z,2))))/32767)*ca;
-        SubscribeAndPublish::Publish(SubscribeAndPublish::marker_14, SubscribeAndPublish::pub_marker_14);
+        // SubscribeAndPublish::marker_14.scale.x = (((sqrt(pow(output.point14x,2)+pow(output.point14y,2)+pow(output.point14z,2))))/32767)*ca;
+        // SubscribeAndPublish::Publish(SubscribeAndPublish::marker_14, SubscribeAndPublish::pub_marker_14);
 
-        tmpvec = Eigen::Vector3d(output.point15x,output.point15y,output.point15z);
-        eulerAngle = vector2matrix2eulerAngle(tmpvec);
-        eulerAngle.z() = eulerAngle.z() - 1.57;
-        q = SubscribeAndPublish::euler2Quaternion(eulerAngle.x(), eulerAngle.y(), eulerAngle.z());
-        SubscribeAndPublish::marker_15.pose.orientation.x = q.x();
-        SubscribeAndPublish::marker_15.pose.orientation.y = q.y();
-        SubscribeAndPublish::marker_15.pose.orientation.z = q.z();
-        SubscribeAndPublish::marker_15.pose.orientation.w = q.w();
+        // tmpvec = Eigen::Vector3d(output.point15x,output.point15y,output.point15z);
+        // eulerAngle = vector2matrix2eulerAngle(tmpvec);
+        // eulerAngle.z() = eulerAngle.z() - 1.57;
+        // q = SubscribeAndPublish::euler2Quaternion(eulerAngle.x(), eulerAngle.y(), eulerAngle.z());
+        // SubscribeAndPublish::marker_15.pose.orientation.x = q.x();
+        // SubscribeAndPublish::marker_15.pose.orientation.y = q.y();
+        // SubscribeAndPublish::marker_15.pose.orientation.z = q.z();
+        // SubscribeAndPublish::marker_15.pose.orientation.w = q.w();
 
-        SubscribeAndPublish::marker_15.scale.x = (((sqrt(pow(output.point15x,2)+pow(output.point15y,2)+pow(output.point15z,2))))/32767)*ca;
-        SubscribeAndPublish::Publish(SubscribeAndPublish::marker_15, SubscribeAndPublish::pub_marker_15);
+        // SubscribeAndPublish::marker_15.scale.x = (((sqrt(pow(output.point15x,2)+pow(output.point15y,2)+pow(output.point15z,2))))/32767)*ca;
+        // SubscribeAndPublish::Publish(SubscribeAndPublish::marker_15, SubscribeAndPublish::pub_marker_15);
 
-        tmpvec = Eigen::Vector3d(output.point16x,output.point16y,output.point16z);
-        eulerAngle = vector2matrix2eulerAngle(tmpvec);
-        eulerAngle.z() = eulerAngle.z() - 1.57;
-        q = SubscribeAndPublish::euler2Quaternion(eulerAngle.x(), eulerAngle.y(), eulerAngle.z());
-        SubscribeAndPublish::marker_16.pose.orientation.x = q.x();
-        SubscribeAndPublish::marker_16.pose.orientation.y = q.y();
-        SubscribeAndPublish::marker_16.pose.orientation.z = q.z();
-        SubscribeAndPublish::marker_16.pose.orientation.w = q.w();
+        // tmpvec = Eigen::Vector3d(output.point16x,output.point16y,output.point16z);
+        // eulerAngle = vector2matrix2eulerAngle(tmpvec);
+        // eulerAngle.z() = eulerAngle.z() - 1.57;
+        // q = SubscribeAndPublish::euler2Quaternion(eulerAngle.x(), eulerAngle.y(), eulerAngle.z());
+        // SubscribeAndPublish::marker_16.pose.orientation.x = q.x();
+        // SubscribeAndPublish::marker_16.pose.orientation.y = q.y();
+        // SubscribeAndPublish::marker_16.pose.orientation.z = q.z();
+        // SubscribeAndPublish::marker_16.pose.orientation.w = q.w();
 
-        SubscribeAndPublish::marker_16.scale.x = (((sqrt(pow(output.point16x,2)+pow(output.point16y,2)+pow(output.point16z,2))))/32767)*ca;
-        SubscribeAndPublish::Publish(SubscribeAndPublish::marker_16, SubscribeAndPublish::pub_marker_16);
+        // SubscribeAndPublish::marker_16.scale.x = (((sqrt(pow(output.point16x,2)+pow(output.point16y,2)+pow(output.point16z,2))))/32767)*ca;
+        // SubscribeAndPublish::Publish(SubscribeAndPublish::marker_16, SubscribeAndPublish::pub_marker_16);
 
         // ROS_INFO("callbacked %d", output.point1x);
         // ROS_INFO("callback published");
