@@ -1,4 +1,26 @@
-# 用户指南User Guide
+# UTactile用户指南User Guide
+# 配套上位机使用指南
+本上位机使用Qt进行开发，运行在Windows平台，能够可视化触觉传感器数据，具备矢量箭头，曲线图，数据存储，参数配置等功能，为传感器数据验证和数据分析提供友好的平台。
+## 准备工具
+![tools_preparation](./pictures/tools_preparation.jpg)
+
+**图1.** （a） UTactile触觉传感套件，包含传感器模块和数据采集卡；（b）RS485转USB转接头；（c）UT Viewer数据可视化软件。
+## 基本使用步骤
+
+1.连接数据采集卡与RS485转USB转接头，如图2所示，即接入采集卡上标有5V、A、B、GND的接口，与RS485转USB转接头对应的5V、A+、B-、GND的接口依次连接。
+![wireConnection](./pictures/wireConnection.jpg)
+
+**图2.** 数据采集卡与RS485转USB转接头的连接使用Pin对Pin的连接方式
+2.将RS485转USB的USB端接口插入电脑，打开电脑设备管理器（Win10：设置→系统→关于→设备管理器），找到对应的串口号（如本机串口号为：COM7）。
+
+若找不到串口号，可能是缺少相关驱动，尝试使用右键“更新驱动程序”，或根据转接头商家提供的信息，安装CH340或PL2303等对应的串口驱动程序。
+![comNum](./pictures/comNum.jpg)
+
+**图3.** 确认UTactile触觉传感套件对应的串口号
+
+3.打开配套的主机软件UT Viewer，选择对应的串口号，波特率选择115200，然后单击“打开”按钮。单击“图像”按钮，打开可视化窗口，即可观察传感器的反应。
+![](./pictures/UTviewerUI.jpg)
+**图4.** （a）进行通信配置；（b）数据可视化界面，展示对应编号传感器模块的三维触觉的大小和方向，右上角勾选中对应传感模块编号后，即可实时显示x,y,z三个分量的对应曲线。
 # Linux平台下使用触觉传感器(RS485)
 ## 1. 环境要求
 本例程中使用Cmake组织工程，在Ubuntu 20.04 LTS下编译通过。
@@ -117,7 +139,7 @@ Run the serial port data reading node independently
 
 
 
-# windos平台下使用触觉传感器(RS485)
+# windows平台下使用触觉传感器(RS485)
 ## 1. 下载并安装MinGW
 下载地址：https://sourceforge.net/projects/mingw/files/
 
