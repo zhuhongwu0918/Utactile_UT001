@@ -1,0 +1,331 @@
+<?xml version="1.0" ?>
+<robot name="eskin">
+<!-- /////////////////////////////////////    COLOR    ///////////////////////////////////////////// -->
+    <material name="Black">
+        <color rgba="0 0 0 1"/>
+    </material>
+    <material name="White">
+        <color rgba="1 1 1 0.95"/>
+    </material>
+    <material name="Blue">
+        <color rgba="0 0 1 1"/>
+    </material>
+    <material name="Yellow">
+        <color rgba="0.8 0.7 0 1"/>
+    </material>
+
+<!-- /////////////////////////////////////    BASE    ///////////////////////////////////////////// -->
+    <link name="base_link">
+        <visual>
+            <origin xyz=" 1.75 3 0.3" rpy="0 0 0" />
+            <geometry>
+            <box size="3.5 6 0.2"/>
+            </geometry>
+            <material name="Yellow"/>
+        </visual>
+    </link>
+
+<!-- /////////////////////////////////////    point1    ///////////////////////////////////////////// -->
+
+    <link name="point1_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <sphere radius="0.2"/>
+            </geometry>
+            <material name="White"/>
+        </visual>
+    </link>
+
+    <joint name="point1_joint" type="fixed">
+        <origin xyz="0.5 1.1 0.3" rpy="0 0 0"/>
+        <parent link="base_link"/>
+        <child link="point1_link"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+<!-- /////////////////////////////////////    point2    ///////////////////////////////////////////// -->
+
+    <link name="point2_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <sphere radius="0.2"/>
+            </geometry>
+            <material name="White"/>
+        </visual>
+    </link>
+
+    <joint name="point2_joint" type="fixed">
+        <origin xyz="0.8 0 0" rpy="0 0 0"/>
+        <parent link="point1_link"/>
+        <child link="point2_link"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+
+<!-- /////////////////////////////////////    point3    ///////////////////////////////////////////// -->
+
+    <link name="point3_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <sphere radius="0.2"/>
+            </geometry>
+            <material name="White"/>
+        </visual>
+    </link>
+
+    <joint name="point3_joint" type="fixed">
+        <origin xyz="0.8 0 0" rpy="0 0 0"/>
+        <parent link="point2_link"/>
+        <child link="point3_link"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+<!-- /////////////////////////////////////    point4    ///////////////////////////////////////////// -->
+
+    <link name="point4_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <sphere radius="0.2"/>
+            </geometry>
+            <material name="White"/>
+        </visual>
+    </link>
+
+    <joint name="point4_joint" type="fixed">
+        <origin xyz="0.8 0 0" rpy="0 0 0"/>
+        <parent link="point3_link"/>
+        <child link="point4_link"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+<!-- group -->
+<!-- /////////////////////////////////////    point5    ///////////////////////////////////////////// -->
+
+    <link name="point5_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <sphere radius="0.2"/>
+            </geometry>
+            <material name="White"/>
+        </visual>
+    </link>
+
+    <joint name="point5_joint" type="fixed">
+        <origin xyz="0 1.1 0" rpy="0 0 0"/>
+        <parent link="point1_link"/>
+        <child link="point5_link"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+<!-- /////////////////////////////////////    point6    ///////////////////////////////////////////// -->
+
+    <link name="point6_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <sphere radius="0.2"/>
+            </geometry>
+            <material name="White"/>
+        </visual>
+    </link>
+
+    <joint name="point6_joint" type="fixed">
+        <origin xyz="0.8 0 0" rpy="0 0 0"/>
+        <parent link="point5_link"/>
+        <child link="point6_link"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+<!-- /////////////////////////////////////    point7    ///////////////////////////////////////////// -->
+
+    <link name="point7_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <sphere radius="0.2"/>
+            </geometry>
+            <material name="White"/>
+        </visual>
+    </link>
+
+    <joint name="point7_joint" type="fixed">
+        <origin xyz="0.8 0 0" rpy="0 0 0"/>
+        <parent link="point6_link"/>
+        <child link="point7_link"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+
+<!-- /////////////////////////////////////    point8    ///////////////////////////////////////////// -->
+
+    <link name="point8_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <sphere radius="0.2"/>
+            </geometry>
+            <material name="White"/>
+        </visual>
+    </link>
+
+    <joint name="point8_joint" type="fixed">
+        <origin xyz="0.8 0 0" rpy="0 0 0"/>
+        <parent link="point7_link"/>
+        <child link="point8_link"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+
+<!-- /////////////////////////////////////    point9    ///////////////////////////////////////////// -->
+
+    <link name="point9_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <sphere radius="0.2"/>
+            </geometry>
+            <material name="White"/>
+        </visual>
+    </link>
+
+    <joint name="point9_joint" type="fixed">
+        <origin xyz="0 1.1 0" rpy="0 0 0"/>
+        <parent link="point5_link"/>
+        <child link="point9_link"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+<!-- /////////////////////////////////////    point10    ///////////////////////////////////////////// -->
+
+    <link name="point10_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <sphere radius="0.2"/>
+            </geometry>
+            <material name="White"/>
+        </visual>
+    </link>
+
+    <joint name="point10_joint" type="fixed">
+        <origin xyz="0.8 0 0" rpy="0 0 0"/>
+        <parent link="point9_link"/>
+        <child link="point10_link"/>
+        <axis xyz="0 1 0"/>
+    </joint> 
+
+<!-- /////////////////////////////////////    point11    ///////////////////////////////////////////// -->
+
+    <link name="point11_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <sphere radius="0.2"/>
+            </geometry>
+            <material name="White"/>
+        </visual>
+    </link>
+
+    <joint name="point11_joint" type="fixed">
+        <origin xyz="0.8 0 0" rpy="0 0 0"/>
+        <parent link="point10_link"/>
+        <child link="point11_link"/>
+        <axis xyz="0 1 0"/>
+    </joint> 
+
+<!-- /////////////////////////////////////    point12    ///////////////////////////////////////////// -->
+
+    <link name="point12_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <sphere radius="0.2"/>
+            </geometry>
+            <material name="White"/>
+        </visual>
+    </link>
+
+    <joint name="point12_joint" type="fixed">
+        <origin xyz="0.8 0 0" rpy="0 0 0"/>
+        <parent link="point11_link"/>
+        <child link="point12_link"/>
+        <axis xyz="0 1 0"/>
+    </joint> 
+
+<!-- /////////////////////////////////////  group  point13    ///////////////////////////////////////////// -->
+
+    <link name="point13_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <sphere radius="0.2"/>
+            </geometry>
+            <material name="White"/>
+        </visual>
+    </link>
+
+    <joint name="point13_joint" type="fixed">
+        <origin xyz="0 1.1 0" rpy="0 0 0"/>
+        <parent link="point9_link"/>
+        <child link="point13_link"/>
+        <axis xyz="0 1 0"/>
+    </joint> 
+
+<!-- ///////////////////////////////////// point14    ///////////////////////////////////////////// -->
+
+    <link name="point14_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <sphere radius="0.2"/>
+            </geometry>
+            <material name="White"/>
+        </visual>
+    </link>
+
+    <joint name="point14_joint" type="fixed">
+        <origin xyz="0.8 0 0" rpy="0 0 0"/>
+        <parent link="point13_link"/>
+        <child link="point14_link"/>
+        <axis xyz="0 1 0"/>
+    </joint> 
+<!-- ///////////////////////////////////// point15    ///////////////////////////////////////////// -->
+
+    <link name="point15_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <sphere radius="0.2"/>
+            </geometry>
+            <material name="White"/>
+        </visual>
+    </link>
+
+    <joint name="point15_joint" type="fixed">
+        <origin xyz="0.8 0 0" rpy="0 0 0"/>
+        <parent link="point14_link"/>
+        <child link="point15_link"/>
+        <axis xyz="0 1 0"/>
+    </joint> 
+    <!-- ///////////////////////////////////// point16    ///////////////////////////////////////////// -->
+
+    <link name="point16_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <sphere radius="0.2"/>
+            </geometry>
+            <material name="White"/>
+        </visual>
+    </link>
+
+    <joint name="point16_joint" type="fixed">
+        <origin xyz="0.8 0 0" rpy="0 0 0"/>
+        <parent link="point15_link"/>
+        <child link="point16_link"/>
+        <axis xyz="0 1 0"/>
+    </joint> 
+</robot>
