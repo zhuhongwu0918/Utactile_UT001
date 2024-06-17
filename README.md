@@ -37,6 +37,7 @@
 
 # UTactile用户指南User Guide
 # 配套上位机使用指南
+测试访问网站  https://zhuhongwu0918.github.io/Utactile_UT001/
 本上位机使用Qt进行开发，运行在Windows平台，能够可视化触觉传感器数据，具备矢量箭头，曲线图，数据存储，参数配置等功能，为传感器数据验证和数据分析提供友好的平台。
 ## 准备工具
 ![tools_preparation](./pictures/tools_preparation.jpg)
