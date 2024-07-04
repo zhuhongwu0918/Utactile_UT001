@@ -1,3 +1,0 @@
-/home/abc/github/bipedal/linux_example/LinuxDemo/build/CMakeFiles/rebuild_cache.dir
-/home/abc/github/bipedal/linux_example/LinuxDemo/build/CMakeFiles/edit_cache.dir
-/home/abc/github/bipedal/linux_example/LinuxDemo/build/CMakeFiles/skin_demo.dir
