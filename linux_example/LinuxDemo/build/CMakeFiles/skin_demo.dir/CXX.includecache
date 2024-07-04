@@ -8,41 +8,7 @@
 
 ../Communication/Inc/app.h
 
-../Communication/Inc/command_type.h
-
 ../Communication/Inc/decode_usart.h
-
-/home/abc/github/bipedal/linux_example/LinuxDemo/Communication/Src/app.cpp
-stdio.h
--
-stdarg.h
--
-stdlib.h
--
-sys/types.h
--
-sys/stat.h
--
-fcntl.h
--
-unistd.h
--
-sys/ioctl.h
--
-errno.h
--
-string.h
--
-signal.h
--
-termios.h
--
-app.h
-/home/abc/github/bipedal/linux_example/LinuxDemo/Communication/Src/app.h
-decode_usart.h
-/home/abc/github/bipedal/linux_example/LinuxDemo/Communication/Src/decode_usart.h
-command_type.h
-/home/abc/github/bipedal/linux_example/LinuxDemo/Communication/Src/command_type.h
 
 /home/abc/github/bipedal/linux_example/LinuxDemo/main.cpp
 stdio.h
