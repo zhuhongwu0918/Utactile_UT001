@@ -364,7 +364,7 @@ void demo_send(unsigned char *pData, unsigned short Size)
 int demo_app_init(void)
 {
 	uart_cfg_t cfg = {0};
-    char device[] = "/dev/ttyUSB1";
+    char device[] = "/dev/ttyUSB0";
     int rw_flag = -1;
 
 	cfg.baudrate = 115200;
