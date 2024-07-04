@@ -3,7 +3,7 @@ build/
 
 # 忽略所有.log文件  
 *.log  
-  
+*.docx#
 # 忽略所有.tmp文件  
 *.tmp  
 linux_example/linuxDemo/build/
