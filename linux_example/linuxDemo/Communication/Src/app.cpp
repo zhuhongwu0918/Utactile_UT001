@@ -20,7 +20,7 @@
 #include "decode_usart.h"
 #include "command_type.h"
 
-#define TAG					"Protocol"
+#define TAG	 "Protocol"
 
 static unsigned char gs_tSendBuf[100];
 Axis_t tAxit[SENSOR_NUMBER];

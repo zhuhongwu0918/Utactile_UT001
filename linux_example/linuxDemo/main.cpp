@@ -20,6 +20,8 @@ int main(int argc, char *argv[])
     }
     printf("skin_demo run\n");
     while(1);
+    //通过该函数打印数据 void axit_decode(unsigned char *pData, unsigned short len)
+    //存放在tAxit数组中
     sleep(1);
     /* 退出 */
     demo_app_exit();
