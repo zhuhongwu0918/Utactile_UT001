@@ -2,8 +2,8 @@
 #include <termios.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include "app.h"
-#include "decode_usart.h"
+#include "Communication/Inc/app.h"
+#include "Communication/Inc/decode_usart.h"
 /*
 待修改
 1.将配置写到主函数
