@@ -1,2 +1,121 @@
 *.log
 build/
+
+# 忽略所有.log文件  
+*.log  
+  
+# 忽略所有.tmp文件  
+*.tmp  
+  
+# 忽略编译生成的文件和目录  
+*.o  
+*.so  
+*.pyc  
+__pycache__/  
+*.dll  
+*.exe  
+*.obj  
+*.pdb  
+*.ilk  
+*.meta  
+*.lib  
+*.exp  
+*.ncb  
+*.suo  
+*.user  
+*.sdf  
+*.opensdf  
+*.sln  
+*.csproj  
+*.userprefs  
+*.pidb  
+*.vspscc  
+  
+# 忽略IDE和编辑器生成的文件  
+.idea/  
+*.iml  
+.vscode/  
+*.sublime-workspace  
+*.sublime-project  
+*.sublime-session  
+.DS_Store  
+*.swp  
+*.swo  
+*.swn  
+*.ses  
+*.tmp  
+*.tmp.*  
+  
+# 忽略node_modules目录  
+node_modules/  
+  
+# 忽略npm-debug.log文件  
+npm-debug.log*  
+yarn-error.log  
+  
+# 忽略虚拟环境目录  
+venv/  
+env/  
+.env  
+.venv  
+  
+# 忽略IDE的本地历史记录  
+.localhistory/  
+  
+# 忽略某些大型文件或目录，具体名称根据实际情况填写  
+# big_data_file.csv  
+# large_dataset/  
+  
+# 忽略自动生成的文档  
+docs/auto_generated/  
+  
+# 忽略一些测试报告和结果  
+test_results/  
+*.testresults  
+  
+# 忽略构建目录和输出  
+build/  
+dist/  
+out/  
+Release/  
+x64/Release/  
+Debug/  
+  
+# 忽略某些IDE的特定配置文件  
+*.userprefs  
+*.csproj.user  
+  
+# 如果你使用Git LFS但想忽略一些特定的大文件  
+# !*.bin  
+# 注意：Git LFS需要单独安装和配置  
+  
+# 忽略任何以~结尾的临时文件  
+*~  
+  
+# 忽略IDE的索引文件  
+*.pidb  
+*.hprof  
+  
+# 忽略JetBrains系列IDE的特定文件  
+*.idea/  
+*.iws  
+*.iml  
+*.ipr  
+  
+# 忽略Linux的隐藏文件或目录，但通常只忽略特定几个  
+# .hidden_file  
+# .hidden_dir/  
+  
+# 如果你在使用Docker，可能想要忽略Docker的配置文件  
+docker-compose.override.yml  
+.dockerignore  
+  
+# 忽略Git子模块  
+# 注意：Git子模块通常是故意添加的，因此这个条目可能不需要  
+# */.git/  
+# !/.git/  
+  
+# 忽略所有.secret文件  
+*.secret  
+  
+# 根据你的项目需求添加更多规则...
