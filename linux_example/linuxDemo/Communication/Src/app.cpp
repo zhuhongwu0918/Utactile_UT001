@@ -19,11 +19,17 @@
 #include "app.h"
 #include "decode_usart.h"
 #include "command_type.h"
+#include <pthread.h>
+#include <semaphore.h>
+#include <sys/time.h>
 
 #define TAG	 "Protocol"
 
 static unsigned char gs_tSendBuf[100];
 Axis_t tAxit[SENSOR_NUMBER];
+
+sem_t g_SensorSem;
+pthread_t tSensorThread;
 
 /***************************以下部分为USB串口配置部分*****************************/
 typedef struct uart_hardware_cfg {
@@ -43,7 +49,7 @@ static int fd;                      //串口终端对应的文件描述符
 *******************************************************************************/
 static int uart_init(const char *device) {
     /* 打开串口终端 */
-    fd = open(device, O_RDWR | O_NOCTTY);
+    fd = open(device, O_RDWR | O_NOCTTY | O_NDELAY);
     if (0 > fd) {
         fprintf(stderr, "open error: %s: %s\n", device, strerror(errno));
         return -1;
@@ -167,7 +173,7 @@ static int uart_cfg(const uart_cfg_t *cfg) {
 
     /* 将 MIN 和 TIME 设置为 0 */
     new_cfg.c_cc[VTIME] = 0;
-    new_cfg.c_cc[VMIN] = 0;
+    new_cfg.c_cc[VMIN] = 1;
 
     /* 清空缓冲区 */
     if (0 > tcflush(fd, TCIOFLUSH)) {
@@ -193,15 +199,15 @@ static int uart_cfg(const uart_cfg_t *cfg) {
  * @retval
 *******************************************************************************/
 static void io_handler(int sig, siginfo_t *info, void *context) {
-    unsigned char buf[10] = {0};
-    int ret;
     if(SIGRTMIN != sig)
         return;
 
+    struct timeval tv;
+
     /* 判断串口是否有数据可读 */
-    if (POLL_IN == info->si_code) {
-        ret = read(fd, buf, 8);     //一次最多读 8 个字节数据
-        usart_rx_data_decode(buf, ret);
+    if (POLL_IN == info->si_code) 
+    {
+        ;//暂时不适用异步接收
     } 
 }
 
@@ -235,7 +241,13 @@ void demo_app_exit(void)
 {
 	tcsetattr(fd, TCSANOW, &old_cfg); //恢复到之前的配置
     close(fd);
-    exit(EXIT_SUCCESS);
+
+    // 等待线程结束
+    pthread_join(tSensorThread, NULL);
+ 
+    // 清理信号量
+    sem_destroy(&g_SensorSem);
+    printf("demo_app_exit");
 }
 
 
@@ -260,13 +272,13 @@ void axit_decode(unsigned char *pData, unsigned short len)
 		tAxit[i].x = ((short)pData[pos] << 8)|pData[pos + 1];
         tAxit[i].y = ((short)pData[pos + 2] << 8)|pData[pos + 3];
         tAxit[i].z = ((short)pData[pos + 4] << 8)|pData[pos + 5];
-		printf("sensor%d:\tx:%d\ty:%d\tz:%d\r\n", i, tAxit[i].x, tAxit[i].y, tAxit[i].z);
+        sem_post(&g_SensorSem); // 发送信号量
+		// printf("sensor%d:\tx:%d\ty:%d\tz:%d\r\n", i, tAxit[i].x, tAxit[i].y, tAxit[i].z);
     }
+    // printf("sensor%d:\tx:%d\ty:%d\tz:%d\r\n", 1, tAxit[1].x, tAxit[1].y, tAxit[1].z);
 	printf("\r\n");
 
-    /* 
-    tAxit变量为每个传感器的三轴数据，此处可添加用户代码 
-    */
+    /* tAxit变量为每个传感器的三轴数据，此处可添加用户代码 */
 }
 
 /******************************************************************************
@@ -318,6 +330,7 @@ static void decode_ok(unsigned char *pData, unsigned short len)
 		break;
 
 	case SENSOR_ORIGIN_DATA:
+        axit_decode(&pData[1], len);
 		break;
 
 	default:
@@ -332,6 +345,7 @@ static void decode_ok(unsigned char *pData, unsigned short len)
 ******************************************************************************/
 int axit_get(Axis_t *axit)
 {
+    sem_wait(&g_SensorSem); // 线程等待信号量
 	memcpy(axit, tAxit, SENSOR_NUMBER * sizeof(Axis_t));
 	return SENSOR_NUMBER;
 }
@@ -341,9 +355,21 @@ int axit_get(Axis_t *axit)
  * @param	freqIndex: 采样频率索引，0~4分别对应10、20、50、100、200Hz采样频率
  * @retval
 *******************************************************************************/
-void app_freq_sample_set(unsigned char freqIndex)
+void sensor_freq_sample_set(unsigned char freqIndex)
 {
 	usart_send_args(HOST_SENSOR_SCAN_FRE_SET, 1, freqIndex);
+}
+
+/******************************************************************************
+ * @brief 	数据输出类型设置
+ * @param	type: 数据类型
+ *              0：力数据 
+ *              1：源数据
+ * @retval
+*******************************************************************************/
+void sensor_output_set(unsigned char type)
+{
+	usart_send_args(HOST_SENSOR_DATA_TYPE_SET, 1, type);
 }
 
 /******************************************************************************
@@ -357,24 +383,41 @@ void demo_send(unsigned char *pData, unsigned short Size)
 	write(fd, pData, Size); //一次向串口写入 8 个字节
 }
 
+void* sensor_notify_callback(void* arg) 
+{
+    unsigned char buf[255] = {0};
+    int ret;
+    // struct timeval tv;
+
+    while(1)
+    {
+        ret = read(fd, buf, 255);     //一次最多读 8 个字节数据
+        // gettimeofday(&tv, NULL);
+        // printf("%lu:rec %d\n",tv.tv_sec * 1000 + tv.tv_usec / 1000, ret);
+        usart_rx_data_decode(buf, ret);
+    }
+    return NULL;
+}
+
 /******************************************************************************
  * @brief 	用户初始化
  * @retval
 ******************************************************************************/
-int demo_app_init(void)
+int demo_app_init(const char *dev)
 {
+    int ret;
+
 	uart_cfg_t cfg = {0};
-    char device[] = "/dev/ttyUSB0";
-    int rw_flag = -1;
+    const char *device = dev;
 
 	cfg.baudrate = 115200;
     cfg.dbit = 8;
     cfg.parity = 'N';
     cfg.sbit = 1;
-    rw_flag = 0; //读
 
+    // 初始化信号量
+    sem_init(&g_SensorSem, 0, 0);
 	decode_usart_init(decode_ok, decode_fail, demo_send);
-
  	/* 串口初始化 */
 	printf("串口初始化 \n");
     if (uart_init(device))
@@ -382,6 +425,7 @@ int demo_app_init(void)
         return -1;
 	}
 
+    fcntl(fd, F_SETFL, O_RDWR);
 	/* 串口配置 */
     printf("串口配置 \n");
     if (uart_cfg(&cfg)) 
@@ -390,7 +434,14 @@ int demo_app_init(void)
         close(fd);
         return -1;
     }
-	async_io_init();
+
+    // 创建线程
+    ret = pthread_create(&tSensorThread, NULL, &sensor_notify_callback, NULL);
+    if (ret != 0) 
+    {
+        printf("Thread creation failed.\n");
+        return -1;
+    }
 
 	return 0;
 }

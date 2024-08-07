@@ -4,26 +4,36 @@
 #include <unistd.h>
 #include "Communication/Inc/app.h"
 #include "Communication/Inc/decode_usart.h"
-/*
-待修改
-1.将配置写到主函数
-2.使用函数直接获取数组数据
-*/
+
 
 int main(int argc, char *argv[])
 {
     int ret;
-    ret = demo_app_init();
+    Axis_t tAxit[SENSOR_NUMBER];
+    ret = demo_app_init("/dev/ttyUSB0");
     if(ret)
     {
         exit(EXIT_FAILURE);
     }
     printf("skin_demo run\n");
-    while(1);
-    //通过该函数打印数据 void axit_decode(unsigned char *pData, unsigned short len)
-    //存放在tAxit数组中
-    sleep(1);
+
+    //设置传感器的采样频率
+    sensor_freq_sample_set(SAMPLE_FREQ_20HZ);
+    //设置传感器输出的数据类型，默认为力数据
+    sensor_output_set(OUTPUT_TYPE_FORCE);
+    while(1)
+    {
+        //实时读取传感器输出的数据
+        axit_get(tAxit);
+        for(int i = 0; i < SENSOR_NUMBER; i++)
+        {
+            printf("sensor%d:\tx:%d\ty:%d\tz:%d\r\n", i, tAxit[i].x, tAxit[i].y, tAxit[i].z);
+        }
+        printf("\n");
+    }
+    
     /* 退出 */
     demo_app_exit();
+    exit(EXIT_SUCCESS);
 }
 
