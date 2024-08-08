@@ -179,7 +179,7 @@ https://blog.csdn.net/qq_38196449/article/details/136125995
   d.运行程序：hexraw.exe COM5(根据具体的串口号输入，本机中传感器串口号为COM5)
 
 得到如下所示的数据输出：
-![16进制原始数据](./pictures/hexrawOutput.png)
+![16进制原始数据](./pictures/windows_print_result.jpg)
 
 ## 4. 输出传感器数据 <!-- omit in toc -->
 to be continue...
