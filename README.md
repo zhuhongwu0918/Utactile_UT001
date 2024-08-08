@@ -181,8 +181,8 @@ https://blog.csdn.net/qq_38196449/article/details/136125995
 得到如下所示的数据输出：
 ![16进制原始数据](./pictures/windows_print_result.jpg)
 
-## 4. 输出传感器数据 <!-- omit in toc -->
-to be continue...
+## 4. 输出原始数据 <!-- omit in toc -->
+找到main.cpp文件中sensor_output_set(OUTPUT_TYPE_ORIGIN);函数，即可设置传感器输出原始数据。
 
 # windows平台下使用触觉传感器(CAN)
 
