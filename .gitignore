@@ -1,14 +1,14 @@
 *.log
 build/
 
-windows_example/build/
+/windows_example/build/
 
 # 忽略所有.log文件  
 *.log  
 *.docx#
 # 忽略所有.tmp文件  
 *.tmp  
-linux_example/linuxDemo/build/
+/linux_example/linuxDemo/build/
 # 忽略编译生成的文件和目录  
 *.o  
 *.so  
