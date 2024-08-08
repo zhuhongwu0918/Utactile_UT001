@@ -1,4 +1,5 @@
-CMakeFiles/main.dir/main.cpp.obj: D:\windows_example\main.cpp \
+CMakeFiles/main.dir/main.cpp.obj: \
+ E:\Project\ElcSkin\04\Utactile_UT001\windows_example\main.cpp \
  C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/iostream \
  C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
  C:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h \
@@ -350,4 +351,9 @@ CMakeFiles/main.dir/main.cpp.obj: D:\windows_example\main.cpp \
  C:/mingw64/x86_64-w64-mingw32/include/sec_api/stralign_s.h \
  C:/mingw64/x86_64-w64-mingw32/include/winsvc.h \
  C:/mingw64/x86_64-w64-mingw32/include/mcx.h \
- C:/mingw64/x86_64-w64-mingw32/include/imm.h
+ C:/mingw64/x86_64-w64-mingw32/include/imm.h \
+ E:\Project\ElcSkin\04\Utactile_UT001\windows_example\uartconfig.h \
+ C:/mingw64/x86_64-w64-mingw32/include/process.h \
+ C:/mingw64/x86_64-w64-mingw32/include/corecrt_startup.h \
+ C:/mingw64/x86_64-w64-mingw32/include/sys/types.h \
+ E:\Project\ElcSkin\04\Utactile_UT001\windows_example\decode_usart.h

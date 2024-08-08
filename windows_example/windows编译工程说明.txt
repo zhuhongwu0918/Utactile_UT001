@@ -1,0 +1,5 @@
+1.安装配置MinGW(参考：https://blog.csdn.net/u010489800/article/details/141029734?csdn_share_tail=%7B%22type%22%3A%22blog%22%2C%22rType%22%3A%22article%22%2C%22rId%22%3A%22141029734%22%2C%22source%22%3A%22u010489800%22%7D)
+2.使用：cmake -S . -B build -G "MinGW Makefiles" 执行CMakeList.txt文件，会在当前目录下生成build目录。
+3.进入build目录：cd build。
+4.编译程序：make，会在当前目录下生成可执行文件hexraw.exe。
+5.运行程序：hexraw.exe COM5(根据具体的串口号输入，本机中传感器串口号为COM5)

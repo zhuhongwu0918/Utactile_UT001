@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/hexraw.dir/hexraw.cpp.obj"
   "CMakeFiles/hexraw.dir/hexraw.cpp.obj.d"
+  "CMakeFiles/hexraw.dir/uartconfig.cpp.obj"
+  "CMakeFiles/hexraw.dir/uartconfig.cpp.obj.d"
   "hexraw.exe"
   "hexraw.exe.manifest"
   "hexraw.pdb"

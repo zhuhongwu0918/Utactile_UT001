@@ -8,7 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "D:/windows_example/hexraw.cpp" "CMakeFiles/hexraw.dir/hexraw.cpp.obj" "gcc" "CMakeFiles/hexraw.dir/hexraw.cpp.obj.d"
+  "E:/Project/ElcSkin/04/Utactile_UT001/windows_example/hexraw.cpp" "CMakeFiles/hexraw.dir/hexraw.cpp.obj" "gcc" "CMakeFiles/hexraw.dir/hexraw.cpp.obj.d"
+  "E:/Project/ElcSkin/04/Utactile_UT001/windows_example/uartconfig.cpp" "CMakeFiles/hexraw.dir/uartconfig.cpp.obj" "gcc" "CMakeFiles/hexraw.dir/uartconfig.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

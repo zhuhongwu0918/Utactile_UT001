@@ -1,6 +1,10 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/main.dir/decode_usart.cpp.obj"
+  "CMakeFiles/main.dir/decode_usart.cpp.obj.d"
   "CMakeFiles/main.dir/main.cpp.obj"
   "CMakeFiles/main.dir/main.cpp.obj.d"
+  "CMakeFiles/main.dir/uartconfig.cpp.obj"
+  "CMakeFiles/main.dir/uartconfig.cpp.obj.d"
   "libmain.dll.a"
   "main.exe"
   "main.exe.manifest"
