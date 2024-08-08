@@ -50,13 +50,11 @@
 
 
 ## 3. 软件包的使用<!-- omit in toc -->
-打开main.cpp文件，找到
-`demo_app_init();`并跳转至app.cpp文件；
+打开main.cpp文件，找到demo_app_init
 
 配置待读取的端口号，如
-`char device[] = "/dev/ttyUSB0";`
-配置读取的波特率，为115200，如
-`cfg.baudrate = 115200;`
+
+`demo_app_init("/dev/ttyUSB0")";`
 
 进入linux_example/LinuxDemo/目录下，执行如下命令：
 
@@ -173,23 +171,12 @@ https://blog.csdn.net/qq_38196449/article/details/136125995
 
 `gcc.exe (x86_64-win32-sjlj-rev0, Built by MinGW-W64 project) 8.1.0 Copyright (C) 2018 Free Software Foundation, Inc. This is free software; see the source for copying conditions.  There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.`
 
-## 3. 编译并运行工程，获取原始16进制数据<!-- omit in toc -->
-查看设备对应的端口号 eg. COM4
-将工程放入不包含中文字符的路径中。
-修改hexraw.cpp文件中 const char* portName = "COM4"; // 串口名称  
-
-
-`mkdir build`
-
-`cd build`
-
-`cmake ..`
-
-`cmake --build .`
-
-`cd \Debug\test`
-
-`.\hexraw.exe`
+## 3. 编译并运行工程，获取数据<!-- omit in toc -->
+查看设备对应的端口号 eg. COM5
+  a.使用：cmake -S . -B build -G "MinGW Makefiles" 执行CMakeList.txt文件，会在当前目录下生成build目录。
+  b.进入build目录：cd build。
+  c.编译程序：make，会在当前目录下生成可执行文件hexraw.exe。
+  d.运行程序：hexraw.exe COM5(根据具体的串口号输入，本机中传感器串口号为COM5)
 
 得到如下所示的数据输出：
 ![16进制原始数据](./pictures/hexrawOutput.png)
