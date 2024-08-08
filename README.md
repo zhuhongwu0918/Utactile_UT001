@@ -54,7 +54,7 @@
 
 配置待读取的端口号，如
 
-`demo_app_init(/dev/ttyUSB0)";`
+`demo_app_init("/dev/ttyUSB0")";`
 
 进入linux_example/LinuxDemo/目录下，执行如下命令：
 
