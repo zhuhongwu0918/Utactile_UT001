@@ -50,9 +50,10 @@
 
 
 ## 3. 软件包的使用<!-- omit in toc -->
-打开main.cpp文件，找到
-demo_app_init
+打开main.cpp文件，找到demo_app_init
+
 配置待读取的端口号，如
+
 `demo_app_init(/dev/ttyUSB0)";`
 
 进入linux_example/LinuxDemo/目录下，执行如下命令：
