@@ -51,12 +51,9 @@
 
 ## 3. 软件包的使用<!-- omit in toc -->
 打开main.cpp文件，找到
-`demo_app_init();`并跳转至app.cpp文件；
-
+demo_app_init
 配置待读取的端口号，如
-`char device[] = "/dev/ttyUSB0";`
-配置读取的波特率，为115200，如
-`cfg.baudrate = 115200;`
+`demo_app_init(/dev/ttyUSB0)";`
 
 进入linux_example/LinuxDemo/目录下，执行如下命令：
 
