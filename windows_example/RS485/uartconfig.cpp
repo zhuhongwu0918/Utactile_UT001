@@ -141,13 +141,11 @@ int SerialPort::OpenListenThread()
 	if (!tListenThread)
 	{
         std::cout << "Create listen thread error" << std::endl;
-        LeaveCriticalSection(&m_csCommunicationSync);
 		return -1;
 	}
 	/** 设置线程的优先级,高于普通线程 */
 	if (!SetThreadPriority(tListenThread, THREAD_PRIORITY_ABOVE_NORMAL))
 	{
-        LeaveCriticalSection(&m_csCommunicationSync);
 		return -1;
 	}
 

@@ -1,3 +1,6 @@
+#ifndef _UART_CONFIG_H__
+#define _UART_CONFIG_H__
+
 #include <iostream>
 #include <string>
 #include <windows.h>
@@ -63,3 +66,5 @@ void sensor_freq_sample_set(unsigned char freqIndex);
 int axit_get(Axis_t *axit);
 int uart_init(const char *comPort);
 void uart_exit(void);
+
+#endif //_UART_CONFIG_H__
