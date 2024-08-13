@@ -4,13 +4,13 @@
 - [ROS系统下使用触觉传感器(RS485)](#ros系统下使用触觉传感器rs485)
 - [windows平台下使用触觉传感器(RS485)](#windows平台下使用触觉传感器rs485)
 - [windows平台下使用触觉传感器(CAN)](#windows平台下使用触觉传感器can)
-- [UTactile触觉传感器通信协议(RS485)](#utactile触觉传感器通信协议(RS485))
+- [UTactile触觉传感器通信协议--RS485](#utactile触觉传感器通信协议--RS485)
   - [协议说明](#协议说明)
   - [数据流格式说明](#数据流格式说明)
   - [数据包详细说明](#数据包详细说明)
   - [上位机发送的数据包](#上位机发送的数据包)
   - [驱动卡发送的数据包](#驱动卡发送的数据包)
-- [UTactile触觉传感器通信协议(CAN)](#utactile触觉传感器通信协议(CAN))
+- [UTactile触觉传感器通信协议--CAN](#utactile触觉传感器通信协议--CAN)
   - [CAN协议说明](#CAN协议说明)
   - [CAN帧ID说明](#CAN帧ID说明)
   - [CAN命令类型](#CAN命令类型)
@@ -246,7 +246,7 @@ https://blog.csdn.net/qq_38196449/article/details/136125995
 如果需要修改采集卡的采样频率和输出数据类型，修改main.cpp文件下的tCANAlyst.sensor_freq_sample_set和tCANAlyst.sensor_output_set函数传入的参数即可。
 
 
-# UTactile触觉传感器通信协议(RS485)
+# UTactile触觉传感器通信协议--RS485
 ## 协议说明
 数据采用RS485输出，波特率为460800，8位数据，1个停止位，无校验，无流控。数据采用高位在前、低位在后的格式发送，上位机可通过USB口接收。
 ## 数据流格式说明
@@ -354,8 +354,8 @@ https://blog.csdn.net/qq_38196449/article/details/136125995
 |Byte[97~98]|第16个传感器z轴数据||
 
 
-# utactile触觉传感器通信协议(CAN)
-## 协议说明
+# utactile触觉传感器通信协议--CAN
+## CAN协议说明
 数据采用CAN输出，波特率为1MBit/s，采用标准帧格式。数据采用高位在前、低位在后的格式发送。
 
 ## CAN帧ID说明
