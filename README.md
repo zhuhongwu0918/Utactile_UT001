@@ -175,11 +175,11 @@ https://blog.csdn.net/qq_38196449/article/details/136125995
 
 查看设备对应的端口号 eg. COM5
 
-  a.使用：cmake -S . -B build -G "MinGW Makefiles" 执行CMakeList.txt文件，会在当前目录下生成build目录。
+  a.进入/windows_example/RS485文件夹，使用：cmake -S . -B build -G "MinGW Makefiles" 执行CMakeList.txt文件，会在当前目录下生成build目录。
   
   b.进入build目录：cd build。
   
-  c.编译程序：make，会在当前目录下生成可执行文件hexraw.exe。
+  c.编译程序：make，会在当前目录下生成可执行文件main.exe。
   
   d.运行程序：hexraw.exe COM5(根据具体的串口号输入，本机中传感器串口号为COM5)
   
@@ -192,6 +192,52 @@ https://blog.csdn.net/qq_38196449/article/details/136125995
 找到main.cpp文件中sensor_output_set(OUTPUT_TYPE_ORIGIN);函数，即可设置传感器输出原始数据。
 
 # windows平台下使用触觉传感器(CAN)
+## 1. 下载并安装MinGW <!-- omit in toc -->
+下载地址：https://sourceforge.net/projects/mingw/files/
+
+安装，勾选mingw32-base和mingw32-gcc-g++
+
+或参考如下教程
+https://blog.csdn.net/qq_38196449/article/details/136125995
+
+## 2. 安装gcc后确认是否安装成功<!-- omit in toc -->
+
+`gcc --version`
+
+输出类似的信息
+
+`gcc.exe (x86_64-win32-sjlj-rev0, Built by MinGW-W64 project) 8.1.0 Copyright (C) 2018 Free Software Foundation, Inc. This is free software; see the source for copying conditions.  There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.`
+
+## 3. CAN分析仪与采集卡的连接<!-- omit in toc -->
+本例中使用的CAN分析仪为CANalyst-II，其外观图如下：
+
+![CANalyst-II外观](./pictures/CANalyst.jpg)
+
+由于当前采集卡上CAN总线的丝印标注与实际线序相反，所以其连接示意图如下：
+
+![CANalyst-II外观](./pictures/windows_can_connected.jpg)
+
+## 4. 安装CAN分析仪驱动<!-- omit in toc -->
+安装USB_CAN TOOL软件接口，售卖CAN分析仪的商家一般会提供该软件。
+
+## 5. 编译并运行工程，获取数据<!-- omit in toc -->
+
+  a.进入/windows_example/CAN文件夹，使用：cmake -S . -B build -G "MinGW Makefiles" 执行CMakeList.txt文件，会在当前目录下生成build目录。
+  
+  b.进入build目录：cd build。
+  
+  c.编译程序：make，会在当前目录下生成可执行文件main.exe。
+  
+  d.运行程序：main.exe CAN2(本例演示连接示意图中，采集卡接在CAN分析仪的CAN2总线上，若接在CAN1上，则执行指令为：main.exe CAN1)
+  
+
+得到如下所示的数据输出：
+
+![16进制原始数据](./pictures/windows_can_run.jpg)
+
+## 6. 修改采集卡配置<!-- omit in toc -->
+如果需要修改采集卡的采样频率和输出数据类型，修改main.cpp文件下的tCANAlyst.sensor_freq_sample_set和tCANAlyst.sensor_output_set函数传入的参数即可。
+
 
 # UTactile触觉传感器通信协议
 ## 协议说明
