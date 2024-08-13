@@ -1,6 +1,7 @@
 - [UTactile用户指南User Guide](#utactile用户指南user-guide)
 - [配套上位机使用指南](#配套上位机使用指南)
 - [Linux平台下使用触觉传感器(RS485)](#linux平台下使用触觉传感器rs485)
+- [TX2平台下使用触觉传感器(CAN)](#TX2平台下使用触觉传感器CAN)
 - [ROS系统下使用触觉传感器(RS485)](#ros系统下使用触觉传感器rs485)
 - [windows平台下使用触觉传感器(RS485)](#windows平台下使用触觉传感器rs485)
 - [windows平台下使用触觉传感器(CAN)](#windows平台下使用触觉传感器can)
@@ -83,6 +84,31 @@
 数据都存储`app.cpp`文件中的函数`void axit_decode(unsigned char *pData, unsigned short len){}`中的数组变量`tAxit`；
 
 可以通过函数`int axit_get(Axis_t *axit);`获取数据。
+
+# TX2平台下使用触觉传感器CAN
+## 1. 环境要求<!-- omit in toc -->
+本历程使用cmake组织工程，并在TX2开发板官方自带的系统中运行。
+
+## 2. 硬件连接说明<!-- omit in toc -->
+由于TX2开发板只有CAN总线，没有CAN收发器，所以本例中额外购买了一个CAN收发器，其连接示意图如下：
+![TX2_connect](pictures/TX2_connect.jpg)
+
+## 3.编译运行<!-- omit in toc -->
+由于TX2的CAN设备驱动模块需要手动加载，并挂载为网络设备。
+
+为了简化这些流程，本例中编写了demo_run.sh脚本，该脚本集成了CAN驱动模块的加载、网络设备的挂载、代码的编译和运行。
+
+所以下载本例程后，进入TX2_example文件夹，先使用
+
+`sudo chmod 777 demo_run.sh`
+
+修改脚本文件的权限，在执行
+
+`./demo_run.sh`
+
+以运行程序，以下为程序成功运行后的结果：
+![TX2_run_result](pictures/TX2_run_result.png)
+
 # ROS系统下使用触觉传感器(RS485)
 ## 1. 环境要求<!-- omit in toc -->
 本例程中使用Cmake组织工程，在Ubuntu 20.04 LTS下编译通过，使用ROS1操作系统。

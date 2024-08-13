@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <termios.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include "can_config.h"
+
+
+int main(int argc, char *argv[])
+{
+    int ret;
+    Axis_t tAxit;
+
+    CANConfig canConfig;
+
+    ret = canConfig.init("can0");
+    if(ret)
+    {
+        exit(EXIT_FAILURE);
+    }
+
+    //设置传感器的采样频率
+    canConfig.sensor_freq_sample_set(SAMPLE_FREQ_20HZ);
+    //设置传感器输出的数据类型，默认为力数据
+    canConfig.sensor_output_set(OUTPUT_TYPE_FORCE);
+    while(1)
+    {
+        //实时读取传感器输出的数据
+        canConfig.getAxit(&tAxit);
+        printf("devId:%d\tindex:%d\tx:%d\ty:%d\tz:%d\n", \
+            tAxit.devId, tAxit.sensorId, tAxit.x, tAxit.y, tAxit.z);
+    }
+    
+    /* 退出 */
+    canConfig.exit();
+    exit(EXIT_SUCCESS);
+}
+
