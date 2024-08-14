@@ -100,12 +100,14 @@
 
 `sudo chmod 777 demo_run.sh`
 
-修改脚本文件的权限，再执行
+修改脚本文件的权限，本例中使用can0总线通信，所以执行
 
-`./demo_run.sh`
+`./demo_run.sh can0`
 
 以运行程序，以下为程序成功运行后的结果：
 ![TX2_run_result](pictures/TX2_run_result.png)
+
+<span style="color:#FF6347;">提示：如果硬件上连接的是can1总线，则执行 `./demo_run.sh can1` 指令运行程序。</span>
 
 # ROS系统下使用触觉传感器(RS485)
 ## 1. 环境要求<!-- omit in toc -->

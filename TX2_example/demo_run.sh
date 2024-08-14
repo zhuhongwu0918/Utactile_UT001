@@ -1,6 +1,7 @@
 #!/bin/bash  
 
 can_mount=0
+can_device=$1
 
 function can_device_mount()
 {
@@ -40,13 +41,13 @@ function can_device_mount()
         return
     fi
 
-    sudo ip link set can0 type can bitrate 1000000 dbitrate 2000000 berr-reporting on fd on
+    sudo ip link set $can_device type can bitrate 1000000 dbitrate 2000000 berr-reporting on fd on
     if [ $? -ne 0 ]; then
         echo "can 波特率设置失败"
         return
     fi
 
-    sudo ip link set up can0 &&
+    sudo ip link set up $can_device &&
     if [ $? -ne 0 ]; then
         echo "can 启动失败"
         return
@@ -54,18 +55,32 @@ function can_device_mount()
 
     can_mount=1
 }
-  
-# 使用 ifconfig 检查 can0 设备是否存在  
-can_device=$(ifconfig | grep -E '^can[0-9]+:' | awk -F':' '{print $1}')
-if [ "$can_device"x == ""x ]; then  
-    echo "没有挂载任何CAN设备,开始挂载can设备" 
+
+if [[ "$can_device" =~ can[0-9]+ ]];then
+    echo "指定通信设备为 $can_device"
+else
+    echo "请输入正确的通信名称，如:can0"
+    exit 0
+fi
+
+# 使用 ifconfig 检查指定通信设备设备是否存在  
+can_device_list=$(ifconfig | grep -E '^can[0-9]+' | awk '{print $1}' | sed 's/://g')
+for list in "${can_device_list[@]}"; do
+    if [ "$list"x == "$can_device"x ];then
+        can_mount=1
+        echo "指定通信设备 $can_device 设备已挂载"
+    fi
+done
+
+if [ $can_mount -eq 0 ]; then  
+    echo "指定通信设备 $can_device 没有挂载,开始挂载该设备" 
     can_device_mount
     if [ $can_mount -eq 1 ]; then
-        can_device=$(ifconfig | grep -E '^can[0-9]+:' | awk -F':' '{print $1}')
-        echo "$can_device 已成功挂载" 
+        echo "指定通信设备 $can_device 已成功挂载" 
+    else
+        echo "指定通信设备 $can_device 挂载失败,请重试"
+        exit 0
     fi
-else  
-    echo "$can_device 已挂载"  
 fi
 
 ls | grep -E "build"
@@ -73,9 +88,9 @@ if [ $? -ne 0 ];then
     mkdir build
 fi
 
-    cd build
-    cmake ..
-    make
-    ./main
+cd build
+cmake ..
+make
+./main "$can_device"
 
 exit 0

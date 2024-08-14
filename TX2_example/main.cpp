@@ -9,10 +9,15 @@ int main(int argc, char *argv[])
 {
     int ret;
     Axis_t tAxit;
-
     CANConfig canConfig;
 
-    ret = canConfig.init("can0");
+    if(argc < 2)
+    {
+        printf("CAN device select error,please try again");
+        exit(EXIT_FAILURE);
+    }
+
+    ret = canConfig.init(argv[1]);
     if(ret)
     {
         exit(EXIT_FAILURE);
