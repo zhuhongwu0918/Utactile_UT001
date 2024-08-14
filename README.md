@@ -117,14 +117,15 @@ sudo chmod 777 demo_run.sh
 #install rosserial package
 ```bash
 sudo apt-get install ros-noetic-serial  #ros为Kinect版本
+```
 OR
+```bash
 sudo apt-get install ros-melodic-serial  #ros为melodic版本
 ```
 
 安装可视化界面软件包
 ```bash
 sudo apt-get install ros-<rosdistro>-joint-state-publisher
-
 sudo apt-get install ros-<rosdistro>-robot-state-publisher
 ```
 新建工作空间并初始化：
