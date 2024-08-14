@@ -2,6 +2,7 @@
 #include <termios.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <sys/time.h>
 #include "can_config.h"
 
 
@@ -10,6 +11,7 @@ int main(int argc, char *argv[])
     int ret;
     Axis_t tAxit;
     CANConfig canConfig;
+    struct timeval tv;
 
     if(argc < 2)
     {
@@ -31,7 +33,8 @@ int main(int argc, char *argv[])
     {
         //实时读取传感器输出的数据
         canConfig.getAxit(&tAxit);
-        printf("devId:%d\tindex:%d\tx:%d\ty:%d\tz:%d\n", \
+        gettimeofday(&tv, NULL);
+        printf("[%lu]devId:%d\tindex:%d\tx:%d\ty:%d\tz:%d\n", tv.tv_sec * 1000 + tv.tv_usec / 1000,  \
             tAxit.devId, tAxit.sensorId, tAxit.x, tAxit.y, tAxit.z);
     }
     

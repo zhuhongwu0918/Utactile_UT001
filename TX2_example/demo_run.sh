@@ -89,8 +89,19 @@ if [ $? -ne 0 ];then
 fi
 
 cd build
-cmake ..
-make
+cmake_output=$(cmake .. 2>&1)  
+echo "$cmake_output"
+if echo "$cmake_output" | grep -iq "error";then
+    echo "cmake 执行出错，退出"
+    exit 0
+fi
+
+make_output=$(make 2>&1)  
+echo "$make_output"
+if echo "$make_output" | grep -iq "error" ;then
+    echo "代码编译出错"
+    exit 0
+fi
 ./main "$can_device"
 
 exit 0
