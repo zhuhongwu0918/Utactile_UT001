@@ -65,14 +65,12 @@
 `demo_app_init("/dev/ttyUSB0")";`
 
 进入linux_example/LinuxDemo/目录下，执行如下命令：
-
-`mkdir build`
-
-`cd build`
-
-`cmake ..`
-
-`make`
+```bash
+mkdir build
+cd build
+cmake ..
+make
+```
 
 生成skin_demo可执行文件并执行
 `./skin_demo`
@@ -102,8 +100,9 @@ sudo chmod 777 demo_run.sh
 ```
 
 本例中使用can0总线通信，执行
-
-`./demo_run.sh can0`
+```bash
+./demo_run.sh can0
+```
 
 以运行程序，以下为程序成功运行后的结果：
 ![TX2_run_result](pictures/TX2_run_result.png)
@@ -116,58 +115,74 @@ sudo chmod 777 demo_run.sh
 #安装rosserial软件包
 
 #install rosserial package
-
-`sudo apt-get install ros-noetic-serial`  #ros为Kinect版本
+```bash
+sudo apt-get install ros-noetic-serial  #ros为Kinect版本
 OR
-`sudo apt-get install ros-melodic-serial`  #ros为melodic版本
+sudo apt-get install ros-melodic-serial  #ros为melodic版本
+```
 
 安装可视化界面软件包
+```bash
+sudo apt-get install ros-<rosdistro>-joint-state-publisher
 
-`sudo apt-get install ros-<rosdistro>-joint-state-publisher`
-
-`sudo apt-get install ros-<rosdistro>-robot-state-publisher`
-
+sudo apt-get install ros-<rosdistro>-robot-state-publisher
+```
 新建工作空间并初始化：
-
-`mkdir -p ~/catkin_ws/src`
-
-`cd ~/catkin_ws/src`
-
-`catkin_init_workspace`
-
-`cd ~/catkin_ws/`
-
-`catkin_make`
-
+```bash
+mkdir -p ~/catkin_ws/src
+```
+```bash
+cd ~/catkin_ws/src
+```
+```bash
+catkin_init_workspace
+```
+```bash
+cd ~/catkin_ws/
+```
+```bash
+catkin_make
+```
 
 #如果使用conda环境，可以使用如下指令进行编译：
 
 #if in conda env,use this command instead:
-
-`catkin_make -DPYTHON_EXECUTABLE=/usr/bin/python3`
+```bash
+catkin_make -DPYTHON_EXECUTABLE=/usr/bin/python3
+```
 
 #将ros软件包tactile_driver拷贝到工作空间src目录下，并编译：
+```bash
 #copy tactile_driver directory into src floder and compile:
+cd ~/catkin_ws && catkin_make
+```
+```bash
+source devel/setup.bash
+```
 
-`cd ~/catkin_ws && catkin_make`
-
-`source devel/setup.bash`
-
+```bash
 #read serial
-
-`ls /dev/ttyUSB0`
+ls /dev/ttyUSB0
+```
 OR
-`ls /dev/ttyACM0`
+```bash
+ls /dev/ttyACM0
+```
 
-`sudo chmod 777 /dev/ttyUSB0`
+```bash
+sudo chmod 777 /dev/ttyUSB0
+```
 OR
-`sudo chmod 777 /dev/ttyACM0`
+```bash
+sudo chmod 777 /dev/ttyACM0
+```
 
 单独运行串口数据读取节点
 
 Run the serial port data reading node independently
-
-`rosrun tactile_driver serial_read`
+```bash
+rosrun tactile_driver serial_read
+```
 
 传感器触点数据会发布在"/tactile_data"的话题中，默认发布频率为10Hz
 
@@ -183,8 +198,9 @@ Run the serial port data reading node independently
 
 *(Tips:The display effect can be changed by revising the parameters)*
 
-
-`roslaunch tactile_driver demo.launch`
+```bash
+roslaunch tactile_driver demo.launch
+```
 
 
 
@@ -198,8 +214,9 @@ Run the serial port data reading node independently
 https://blog.csdn.net/qq_38196449/article/details/136125995
 
 ## 2. 安装gcc后确认是否安装成功<!-- omit in toc -->
-
-`gcc --version`
+```bash
+gcc --version
+```
 
 输出类似的信息
 
@@ -209,13 +226,27 @@ https://blog.csdn.net/qq_38196449/article/details/136125995
 
 查看设备对应的端口号 eg. COM5
 
-  a.进入/windows_example/RS485文件夹，使用：cmake -S . -B build -G "MinGW Makefiles" 执行CMakeList.txt文件，会在当前目录下生成build目录。
+  a.进入/windows_example/RS485文件夹，执行CMakeList.txt文件，会在当前目录下生成build目录,执行指令：
+  ```bash
+  cmake -S . -B build -G "MinGW Makefiles"
+  ```
   
-  b.进入build目录：cd build。
+  b.进入build目录：
+  ```bash
+  cd build
+  ```
   
-  c.编译程序：make，会在当前目录下生成可执行文件main.exe。
+  c.编译程序：
+  ```bash
+  make
+  ```
+  会在当前目录下生成可执行文件main.exe。
   
-  d.运行程序：hexraw.exe COM5(根据具体的串口号输入，本机中传感器串口号为COM5)
+  d.运行程序：
+  ```bash
+  hexraw.exe COM5
+  ```
+  (根据具体的串口号输入，本机中传感器串口号为COM5)
   
 
 得到如下所示的数据输出：
@@ -235,8 +266,9 @@ https://blog.csdn.net/qq_38196449/article/details/136125995
 https://blog.csdn.net/qq_38196449/article/details/136125995
 
 ## 2. 安装gcc后确认是否安装成功<!-- omit in toc -->
-
-`gcc --version`
+```bash
+gcc --version
+```
 
 输出类似的信息
 
@@ -256,13 +288,27 @@ https://blog.csdn.net/qq_38196449/article/details/136125995
 
 ## 5. 编译并运行工程，获取数据<!-- omit in toc -->
 
-  a.进入/windows_example/CAN文件夹，使用：cmake -S . -B build -G "MinGW Makefiles" 执行CMakeList.txt文件，会在当前目录下生成build目录。
+  a.进入/windows_example/CAN文件夹，执行CMakeList.txt文件，会在当前目录下生成build目录，执行指令：
+  ```bash
+  cmake -S . -B build -G "MinGW Makefiles"
+  ```
   
-  b.进入build目录：cd build。
+  b.进入build目录：
+  ```bash
+  cd build
+  ```
   
-  c.编译程序：make，会在当前目录下生成可执行文件main.exe。
+  c.编译程序：
+  ```bash
+  make
+  ```
+  会在当前目录下生成可执行文件main.exe。
   
-  d.运行程序：main.exe CAN2(本例演示连接示意图中，采集卡接在CAN分析仪的CAN2总线上，若接在CAN1上，则执行指令为：main.exe CAN1)
+  d.运行程序：
+  ```bash
+  main.exe CAN2
+  ```
+  (本例演示连接示意图中，采集卡接在CAN分析仪的CAN2总线上，若接在CAN1上，则执行指令为：main.exe CAN1)
   
 
 得到如下所示的数据输出：
