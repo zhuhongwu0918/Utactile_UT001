@@ -2,4 +2,4 @@
 2.使用：cmake -S . -B build -G "MinGW Makefiles" 执行CMakeList.txt文件，会在当前目录下生成build目录。
 3.进入build目录：cd build。
 4.编译程序：make，会在当前目录下生成可执行文件hexraw.exe。
-5.运行程序：hexraw.exe COM5(根据具体的串口号输入，本机中传感器串口号为COM5)
+5.运行程序：main.exe COM5(根据具体的串口号输入，本机中传感器串口号为COM5)

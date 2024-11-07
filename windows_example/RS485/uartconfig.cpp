@@ -2,6 +2,7 @@
 #include <sstream>
 #include <iomanip>
 #include <algorithm>
+#include <Windows.h>
 #include <time.h>
 #include "uartconfig.h"
 #include "command_type.h"
