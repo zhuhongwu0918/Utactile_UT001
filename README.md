@@ -252,7 +252,7 @@ gcc --version
   
   d.运行程序：
   ```bash
-  hexraw.exe COM5
+  main.exe COM5
   ```
   (根据具体的串口号输入，本机中传感器串口号为COM5)
   
